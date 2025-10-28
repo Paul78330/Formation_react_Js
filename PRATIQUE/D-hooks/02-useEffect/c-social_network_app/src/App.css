@@ -1,0 +1,47 @@
+/* Stylisation du conteneur principal */
+.App {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Stylisation du contenu */
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Stylisation de la section des nouvelles */
+.content section {
+  width: 60%;
+}
+
+/* Stylisation des articles de nouvelles */
+.content section article {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* Stylisation de la liste d'amis */
+.content aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Stylisation des éléments de la liste d'amis */
+.content aside ul li {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* Stylisation des amis en ligne */
+.content aside ul li.online {
+  background-color: #dff0d8;
+}
+
+/* Stylisation des amis hors ligne */
+.content aside ul li.offline {
+  background-color: #f2dede;
+}
