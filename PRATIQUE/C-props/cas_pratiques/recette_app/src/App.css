@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.recipeDiv {
+  background-image: url("../public/image/recipe.png");
+}
+
+.card {
+  background-color: #E2C290;
+  display: inline-block;
+  font-weight: 500;
+  max-width: 50%;
+}
+
+.card img {
+  object-fit: cover;
+  display: inline-block;
+  margin-left: 30%;
+}
+
+.title {
+  color: #3D3C3A;
+  font-weight: 800;
+  font-size: 2em; /* Ajustez cette valeur en fonction de vos besoins */
+}
+
+.container {
+  width: 90%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -23,3 +23,5 @@ Thumbs.db
 .tmp/
 **/.git.bak/
 *.git.bak
+# Ignore accidental manual copies (explicit copy to ignore)
+PRATIQUE/C-props/02-event_and_child/a-button_app\ -\ Copie/
