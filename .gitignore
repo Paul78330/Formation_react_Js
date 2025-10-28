@@ -1,0 +1,20 @@
+# Ignorer tous les dossiers node_modules (n'importe où dans le dépôt)
+# Ceci empêche d'ajouter les dépendances installées localement aux commits.
+node_modules/
+**/node_modules/
+
+# Entrées utiles additionnelles
+# dossiers de build
+dist/
+build/
+
+# logs et caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

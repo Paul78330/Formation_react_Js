@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mon Application React</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
+<!--
+La ligne <script src="/bundle.js"></script> est une balise script HTML qui indique au navigateur de charger et d'exécuter le fichier JavaScript spécifié. Dans ce cas, le fichier est bundle.js, qui est le bundle de votre application généré par Webpack.
+
+Voici comment cela fonctionne dans le contexte de votre configuration React et Webpack :
+
+Vous écrivez votre code source en JavaScript et JSX dans vos fichiers .js et .jsx.
+
+Lorsque vous exécutez la commande de build (npm run build), Webpack lit le point d'entrée spécifié dans votre configuration (./src/index.js), puis suit toutes les importations à partir de ce fichier pour construire un graphe de dépendances de votre application.
+
+Webpack passe ensuite chaque module de ce graphe de dépendances par les loaders spécifiés dans votre configuration. Dans votre cas, vous utilisez babel-loader pour transpiler votre code JavaScript et JSX en code JavaScript qui peut être exécuté par les navigateurs.
+
+Une fois que tous les modules ont été transpilés, Webpack les regroupe en un seul fichier, le bundle. Dans votre configuration, le nom du bundle est bundle.js et il est placé dans le dossier dist.
+
+Lorsque vous démarrez votre serveur de développement (npm start), webpack-dev-server sert votre application à partir du dossier spécifié dans devServer.static.directory (public dans votre cas). Cela signifie que lorsque vous ouvrez votre navigateur à localhost:8080 (ou le port que vous avez spécifié), il charge le fichier HTML de ce dossier.
+
+Dans votre fichier HTML, vous avez une balise script qui fait référence à /bundle.js. Cela indique au navigateur de charger et d'exécuter le fichier bundle.js à partir de la racine du serveur. Comme webpack-dev-server sert le bundle à partir de la racine, le navigateur peut le trouver et l'exécuter.
+
+Le bundle contient tout votre code d'application, y compris le code React qui rend vos composants dans le DOM. C'est ainsi que votre application React est chargée et exécutée dans le navigateur.
+
+
+-->
