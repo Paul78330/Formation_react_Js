@@ -1,0 +1,37 @@
+/* Styles globaux */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+/* Stylisation des boutons d'articles d'épicerie */
+button {
+  background-color: #4CAF50; /* Couleur de fond verte */
+  color: white; /* Texte blanc */
+  padding: 10px 20px; /* Espacement interne */
+  margin: 10px 5px; /* Marge externe */
+  border: none; /* Pas de bordure */
+  cursor: pointer; /* Curseur en forme de main */
+  border-radius: 5px; /* Bordures arrondies */
+  transition: background-color 0.3s ease; /* Transition pour l'effet au survol */
+}
+
+button:hover {
+  background-color: #45a049; /* Couleur de fond plus foncée au survol */
+}
+
+/* Style pour le conteneur principal */
+div {
+  max-width: 600px; /* Largeur maximale */
+  margin: auto; /* Centrage */
+  background-color: white; /* Arrière-plan blanc */
+  padding: 20px; /* Espacement interne */
+  border-radius: 10px; /* Bordures arrondies */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre légère */
+}
