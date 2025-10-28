@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  width: 60%; /* La div prend 60% de la largeur de l'écran */
+  margin: 0 auto; /* Centrer la div sur la page */
+  padding: 20px; /* Ajouter un peu d'espace autour du contenu */
+}
+
+.container h1, .container h2 {
+  text-align: center; /* Centrer les titres */
+}
+
+.container ul {
+  list-style-type: none; /* Supprimer les puces de la liste */
+  padding: 0; /* Supprimer le padding de la liste */
+}
+
+.container li {
+  cursor: pointer; /* Changer le curseur en main lorsqu'on survole un élément de la liste */
+  margin: 10px 0; /* Ajouter un peu d'espace au-dessus et en dessous de chaque élément de la liste */
+  padding: 10px; /* Ajouter un peu d'espace autour du contenu de chaque élément de la liste */
+  background-color: #f8f8f8; /* Changer la couleur de fond des éléments de la liste */
+  border-radius: 5px; /* Arrondir les coins des éléments de la liste */
+}
+
+.container li:active {
+  background-color: #ddd;
+  color: black /* Changer la couleur de fond des éléments de la liste lorsqu'on clique dessus */
+}
