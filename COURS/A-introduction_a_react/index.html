@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TodoList - JavaScript classique</title>
+</head>
+<body>
+  <h1>Ma TodoList</h1>
+
+  <input type="text" id="taskInput" placeholder="Nouvelle tâche" />
+  <button id="addBtn">Ajouter</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const input = document.getElementById('taskInput');
+    const addBtn = document.getElementById('addBtn');
+    const list = document.getElementById('taskList');
+
+    // État de notre "application"
+    let tasks = [];
+
+    // Fonction d’affichage du DOM
+    function render() {
+      list.innerHTML = ''; // Réinitialise la liste
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.textContent = task;
+
+        const delBtn = document.createElement('button');
+        delBtn.textContent = '❌';
+        delBtn.onclick = () => {
+          tasks.splice(index, 1); // Supprime la tâche du tableau
+          render(); // Re-rend toute la liste manuellement
+        };
+
+        li.appendChild(delBtn);
+        list.appendChild(li);
+      });
+    }
+
+    // Ajout d’une tâche
+    addBtn.addEventListener('click', () => {
+      const task = input.value.trim();
+      if (task) {
+        tasks.push(task); // Mise à jour du "state"
+        render(); // Obligation de redessiner la vue à la main
+        input.value = '';
+      }
+    });
+
+
+
+
+    
+  </script>
+<!--
+
+Chaque fois que l’utilisateur ajoute ou supprime une tâche :
+
+On met à jour le tableau tasks (notre état),
+
+Puis on réécrit tout le contenu du <ul> avec render().
+
+Cette méthode devient vite lourde et difficile à maintenir :
+
+Multiplication des eventListener,
+
+Risques d’erreurs de synchronisation entre le DOM et les données,
+
+Code peu réutilisable.-->
+</body>
+</html>
