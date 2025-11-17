@@ -13,11 +13,52 @@ En utilisant `props.children`, nous pouvons séparer le composant externe, `My
 Regardez **BigButton.js** .
 
 ```
-span
+// BigButton.js
+import React from "react";
+
+/**
+ * Composant BigButton
+ * -------------------
+ * Ce composant démontre l’utilisation de `props.children`.
+ * Tout ce qui se trouve entre <BigButton> et </BigButton>
+ * sera automatiquement affiché à l’intérieur du bouton.
+ */
+
+function BigButton(props) {
+  return (
+    <button
+      style={{
+        padding: "20px 40px",
+        fontSize: "1.5rem",
+        backgroundColor: "#007bff",
+        color: "white",
+        border: "none",
+        borderRadius: "8px",
+        cursor: "pointer",
+      }}
+    >
+      {props.children}
+    </button>
+  );
+}
+
+export default BigButton;
 ```
 
 * Dans *l'exemple 1,* `<BigButton>` , `props.children` serait égal au texte « Je suis un enfant de BigButton ».
+
+  ```
+  {/* Exemple 1 : texte simple */}
+        <BigButton>Je suis un enfant de BigButton</BigButton>
+  ```
 * Dans *l'exemple 2,* `<BigButton>` , `props.children` serait égal à un `<LilButton />`composant.
+
+  ```
+  <BigButton>
+          <LilButton />
+        </BigButton>
+
+  ```
 * Dans *l'exemple 3,* `<BigButton>` , `props.children` serait égal à `undefined`.
 
 Si un composant a plus d'un enfant entre ses balises JSX, il `props.children`renverra ces enfants dans un tableau. Cependant, si un composant n'a qu'un seul enfant, il `props.children`renverra alors l'unique enfant, *non* encapsulé dans un tableau.
