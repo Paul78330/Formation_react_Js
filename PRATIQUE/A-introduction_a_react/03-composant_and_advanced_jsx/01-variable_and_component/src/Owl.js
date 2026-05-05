@@ -2,7 +2,7 @@ import React from "react";
 
 const owl = {
   title: "Excellent Owl",
-  src: "https://content.codecademy.com/courses/React/react_photo-owl.jpg",
+  src: "/image/img-owl.jpg",
 };
 
 //Define function component here:

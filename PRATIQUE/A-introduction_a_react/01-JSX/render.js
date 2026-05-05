@@ -3,7 +3,7 @@
 
 //Examinons le code que vous venez d'écrire dans les dernière lignes de app-1.js.
 const container = document.getElementById('app');
-const root = reactDOM.createRoot(container);
+const root = ReactDOM.createRoot(container);
 root.render(<h1>Hello world</h1>);
 
 
@@ -43,7 +43,7 @@ root.render(<h1>Hello world</h1>);
   );
   
   const container2 = document.getElementById('app2');
-  const root2 = reactDOM.createRoot(container2);
+  const root2 = ReactDOM.createRoot(container2);
   root2.render(toDoList);
 
   //Le DOM virtuel

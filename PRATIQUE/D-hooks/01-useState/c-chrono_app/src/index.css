@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Effet de fond animé sportif */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px, rgba(255,255,255,0.03) 41px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px, rgba(255,255,255,0.03) 41px);
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(40px, 40px);
+  }
+}
+
+/* Container principal */
+#root {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.chrono-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 50px 40px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.chrono-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff, #ff6b6b);
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Titre */
+.chrono-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chrono-subtitle {
+  font-size: 1rem;
+  color: #718096;
+  margin-bottom: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Affichage du chronomètre */
+.chrono-display {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin-bottom: 40px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.chrono-display::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.chrono-time {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 8px;
+  text-shadow: 
+    0 0 20px rgba(102, 126, 234, 0.8),
+    0 0 40px rgba(102, 126, 234, 0.5);
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.chrono-time.active {
+  animation: timeGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes timeGlow {
+  from {
+    text-shadow: 
+      0 0 20px rgba(102, 126, 234, 0.8),
+      0 0 40px rgba(102, 126, 234, 0.5);
+  }
+  to {
+    text-shadow: 
+      0 0 30px rgba(255, 107, 107, 0.9),
+      0 0 60px rgba(255, 107, 107, 0.6);
+  }
+}
+
+.chrono-milliseconds {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Conteneur des boutons */
+.chrono-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Styles des boutons */
+.chrono-btn {
+  padding: 18px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+}
+
+.chrono-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.chrono-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.chrono-btn:active {
+  transform: scale(0.95);
+}
+
+/* Bouton Start */
+.chrono-btn.start {
+  background: linear-gradient(135deg, #6bcf7f 0%, #48bb78 100%);
+  color: white;
+}
+
+.chrono-btn.start:hover {
+  box-shadow: 
+    0 6px 25px rgba(107, 207, 127, 0.4),
+    0 0 0 3px rgba(107, 207, 127, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Bouton Pause */
+.chrono-btn.pause {
+  background: linear-gradient(135deg, #ffd93d 0%, #f6ad55 100%);
+  color: #2d3748;
+}
+
+.chrono-btn.pause:hover {
+  box-shadow: 
+    0 6px 25px rgba(255, 217, 61, 0.4),
+    0 0 0 3px rgba(255, 217, 61, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Bouton Stop */
+.chrono-btn.stop {
+  background: linear-gradient(135deg, #ff6b6b 0%, #e53e3e 100%);
+  color: white;
+}
+
+.chrono-btn.stop:hover {
+  box-shadow: 
+    0 6px 25px rgba(255, 107, 107, 0.4),
+    0 0 0 3px rgba(255, 107, 107, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Bouton Reset */
+.chrono-btn.reset {
+  background: linear-gradient(135deg, #4d96ff 0%, #4299e1 100%);
+  color: white;
+}
+
+.chrono-btn.reset:hover {
+  box-shadow: 
+    0 6px 25px rgba(77, 150, 255, 0.4),
+    0 0 0 3px rgba(77, 150, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Bouton désactivé */
+.chrono-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chrono-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Statistiques optionnelles */
+.chrono-stats {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .chrono-title {
+    font-size: 2rem;
+  }
+  
+  .chrono-time {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+  }
+  
+  .chrono-milliseconds {
+    font-size: 1.5rem;
+  }
+  
+  .chrono-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    min-width: 120px;
+  }
+  
+  .chrono-container {
+    padding: 30px 20px;
+  }
+}
+
+/* Animations de chargement */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chrono-container {
+  animation: fadeIn 0.6s ease-out;
+}

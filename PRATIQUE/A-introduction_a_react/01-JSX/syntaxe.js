@@ -106,5 +106,5 @@ const paragraphs = (
 // Restituer une expression JSX signifie la faire apparaître à l’écran .
 //Le code suivant affichera une expression JSX :
 const container = document.getElementById('app');
-const root = reactDOM.createRoot(container);
+const root = ReactDOM.createRoot(container);
 root.render(<h1>Hello world</h1>);
